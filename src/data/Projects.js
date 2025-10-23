@@ -1,37 +1,30 @@
 export const projects = [
     {
         id: 1,
-        title: "E-Commerce Platform",
-        description: "A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-        technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-        category: "fullstack",
-        liveUrl: "#",
-        githubUrl: "#"
-    },
-    {
-        id: 2,
-        title: "Task Management App",
-        description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-        image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
-        technologies: ["React", "TypeScript", "Socket.io", "PostgreSQL"],
+        title: "Tic Tac Toe Game",
+        description: "A classic Tic Tac Toe game built with HTML, CSS, and JavaScript. Features include a responsive grid, interactive X and O gameplay, and a reset button to start a new game.",
+        image: "https://images.unsplash.com/photo-1612831669090-7a9f7a6f5b1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHRpYyUyMHRhYyUyMHRvZSUyMGdhbWV8ZW58MHx8MHx8&w=500&h=300&q=80",
+        technologies: ["HTML", "CSS", "JavaScript"],
         category: "frontend",
-        liveUrl: "#",
-        githubUrl: "#"
-    },
-    {
-        id: 3,
-        title: "Weather Dashboard",
-        description: "A responsive weather dashboard that displays current weather conditions and forecasts using real-time API data.",
-        image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
-        technologies: ["JavaScript", "CSS3", "Weather API"],
-        category: "frontend",
-        liveUrl: "#",
-        githubUrl: "#"
+        liveUrl: "https://tic-tac-toe-game-rho-ochre.vercel.app/",     
+        githubUrl: "https://github.com/amansumesh/Tic-Tac-Toe-Game.git"
     },
     {
 
-        id: 4,
+        id: 2,
+        title: "Personal Portfolio Website",
+        description: "A modern, responsive personal portfolio built to showcase development skills, projects, and contact information. Features include smooth scrolling, animations, and dark mode support.",
+        image: "https://images.unsplash.com/photo-1587440854486-d2432a69622d?w=500&h=300&fit=crop",
+        technologies: ["React", "Tailwind CSS", "Vite", "EmailJS"],
+        category: "frontend",
+        liveUrl: "https://aman-sumesh.vercel.app/",
+        githubUrl: "https://github.com/amansumesh/Portfolio.git"
+
+    },
+
+    {
+
+        id: 3,
         title: "EduSphere LMS",
         description: "A modern Learning Management System built with the MERN stack. Features include user authentication via Clerk, secure payments with Stripe, media management through Cloudinary, and a responsive React frontend. Designed for seamless online course creation and management.",
         image: "https://unsplash.com/photos/a-pen-on-a-book-nVBPy9S2USQ",
@@ -41,8 +34,8 @@ export const projects = [
         githubUrl: "https://github.com/amansumesh/EduSphere.git"
 
     },
-    
-    
+
+
 ];
 
 export const categories = [

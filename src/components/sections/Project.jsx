@@ -24,8 +24,8 @@ export default function Project() {
     }, []);
 
 
-    const filteredProjects = activeFilter === "all" 
-        ? projects 
+    const filteredProjects = activeFilter === "all"
+        ? projects
         : projects.filter(project => project.category === activeFilter);
 
     return (
@@ -48,11 +48,10 @@ export default function Project() {
                             <button
                                 key={category.name}
                                 onClick={() => setActiveFilter(category.name)}
-                                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                                    activeFilter === category.name
-                                        ? 'bg-pink-500 text-white shadow-lg shadow-pink-500/25'
-                                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-pink-400'
-                                }`}
+                                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${activeFilter === category.name
+                                    ? 'bg-pink-500 text-white shadow-lg shadow-pink-500/25'
+                                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-pink-400'
+                                    }`}
                             >
                                 {category.label}
                             </button>
@@ -78,12 +77,16 @@ export default function Project() {
                                         <div className="flex gap-2">
                                             <a
                                                 href={project.liveUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="px-3 py-1 bg-pink-500 text-white text-sm rounded-full hover:bg-pink-600 transition-colors duration-300"
                                             >
                                                 Live Demo
                                             </a>
                                             <a
                                                 href={project.githubUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="px-3 py-1 border border-pink-500 text-pink-400 text-sm rounded-full hover:bg-pink-500 hover:text-white transition-colors duration-300"
                                             >
                                                 GitHub
@@ -91,7 +94,7 @@ export default function Project() {
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors duration-300">
                                         {project.title}
