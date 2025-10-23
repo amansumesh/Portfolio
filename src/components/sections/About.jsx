@@ -30,36 +30,36 @@ export default function About() {
     }, []);
 
     const skills = [
-        { 
-            name: "React", 
+        {
+            name: "React",
             logo: <img src={ReactLogo} alt="React" className="w-8 h-8" />
         },
-        { 
-            name: "JavaScript", 
+        {
+            name: "JavaScript",
             logo: <img src={JavaScriptLogo} alt="JavaScript" className="w-8 h-8" />
         },
-        { 
-            name: "Express", 
+        {
+            name: "Express",
             logo: <img src={ExpressLogo} alt="Express" className="w-8 h-8" />
         },
-        { 
-            name: "Python", 
+        {
+            name: "Python",
             logo: <img src={PythonLogo} alt="Python" className="w-8 h-8" />
         },
-        { 
-            name: "Java", 
+        {
+            name: "Java",
             logo: <img src={JavaLogo} alt="Java" className="w-8 h-8" />
         },
-        { 
-            name: "MongoDB", 
+        {
+            name: "MongoDB",
             logo: <img src={MongoDBLogo} alt="MongoDB" className="w-8 h-8" />
         },
-        { 
-            name: "Next.js", 
+        {
+            name: "Next.js",
             logo: <img src={NextLogo} alt="Next.js" className="w-8 h-8" />
         },
-        { 
-            name: "Figma", 
+        {
+            name: "Figma",
             logo: <img src={FigmaLogo} alt="Figma" className="w-8 h-8" />
         }
     ];
@@ -80,20 +80,20 @@ export default function About() {
                         <div className="space-y-6">
                             <div className="text-lg text-gray-300 leading-relaxed">
                                 <p className="mb-4">
-                                    I'm a passionate full-stack developer with a love for creating 
-                                    innovative digital solutions. With over 3 years of experience in 
-                                    web development, I specialize in building modern, scalable applications 
+                                    I'm a passionate full-stack developer with a love for creating
+                                    innovative digital solutions. student at Vellore Institute of Technology, Vellore.
+                                    I specialize in building modern, scalable applications 
                                     that deliver exceptional user experiences.
                                 </p>
                                 <p className="mb-4">
-                                    My journey in tech started with curiosity about how websites work, 
-                                    and it has evolved into a deep passion for problem-solving through code. 
-                                    I enjoy working with cutting-edge technologies and am always eager to 
+                                    My journey in tech started with curiosity about how websites work,
+                                    and it has evolved into a deep passion for problem-solving through code.
+                                    I enjoy working with cutting-edge technologies and am always eager to
                                     learn new tools and frameworks.
                                 </p>
                                 <p>
-                                    When I'm not coding, you can find me exploring new technologies, 
-                                    contributing to open-source projects, or sharing knowledge with the 
+                                    When I'm not coding, you can find me exploring new technologies,
+                                    contributing to open-source projects, or sharing knowledge with the
                                     developer community.
                                 </p>
                             </div>
@@ -116,11 +116,10 @@ export default function About() {
                             <h3 className="text-2xl font-bold text-white mb-6">Technical Skills</h3>
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                                 {skills.map((skill, index) => (
-                                    <div 
-                                        key={skill.name} 
-                                        className={`flex flex-col items-center p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 ${
-                                            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                                        }`}
+                                    <div
+                                        key={skill.name}
+                                        className={`flex flex-col items-center p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                                            }`}
                                         style={{ transitionDelay: `${index * 100}ms` }}
                                     >
                                         <div className="p-3 rounded-full bg-white/10 mb-3 flex items-center justify-center">

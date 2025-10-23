@@ -7,6 +7,8 @@ import Home from "./components/sections/Home";
 import About from "./components/sections/About";
 import Project from "./components/sections/Project";
 import Contact from "./components/sections/Contact";
+import Footer from "./components/sections/Footer";
+import GoToTop from "./components/GoToTop";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,6 +23,8 @@ function App() {
           <About />
           <Project />
           <Contact />
+          <GoToTop />
+          <Footer />
         </div>
       )}
     </>

@@ -9,7 +9,7 @@ export default function Home() {
     }, []);
 
     return (
-        <section id="home" className="scroll-mt-20 min-h-screen flex items-center justify-center relative overflow-hidden">
+        <section id="home" className="scroll-mt-20 min-h-screen flex items-start sm:items-center justify-center relative overflow-hidden">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)]"></div>
@@ -18,7 +18,7 @@ export default function Home() {
             <div className="absolute top-40 right-20 w-16 h-16 border border-pink-400/20 rounded-full animate-pulse delay-1000"></div>
             <div className="absolute bottom-32 left-1/4 w-12 h-12 border border-pink-300/40 rounded-full animate-pulse delay-2000"></div>
 
-            <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-18 sm:pt-12">
                 <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                     
                     {/* Circular Image Section */}
@@ -65,7 +65,7 @@ export default function Home() {
                 </div>
 
                 {/* Scroll Indicator */}
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden lg:flex">
                     <div className="w-6 h-10 border-2 border-pink-400 rounded-full flex justify-center">
                         <div className="w-1 h-3 bg-pink-400 rounded-full mt-2 animate-pulse"></div>
                     </div>
