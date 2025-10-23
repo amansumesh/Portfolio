@@ -17,9 +17,9 @@ export const projects = [
     {
         id: 2,
         title: "Personal Portfolio Website",
-        description: "A modern, responsive personal portfolio built to showcase development skills, projects, and contact information. Features include smooth scrolling, animations, and dark mode support.",
+        description: "A modern, responsive personal portfolio designed to showcase development skills, projects, and contact information. Features include smooth scrolling, interactive project sections, animated transitions, and a fully responsive layout for seamless viewing across devices.",
         image: PortfolioImage,
-        technologies: ["React", "Tailwind CSS", "Vite", "EmailJS"],
+        technologies: ["Figma", "React", "Tailwind CSS", "Vite", "EmailJS"],
         category: "frontend",
         liveUrl: "https://aman-sumesh.vercel.app/",
         githubUrl: "https://github.com/amansumesh/Portfolio.git"

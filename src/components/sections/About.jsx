@@ -81,7 +81,7 @@ export default function About() {
                             <div className="text-lg text-gray-300 leading-relaxed">
                                 <p className="mb-4">
                                     I'm a passionate full-stack developer with a love for creating
-                                    innovative digital solutions. student at Vellore Institute of Technology, Vellore.
+                                    innovative digital solutions. I am a student at VIT Vellore.
                                     I specialize in building modern, scalable applications 
                                     that deliver exceptional user experiences.
                                 </p>
@@ -131,26 +131,6 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-
-                    {/* Stats Section */}
-                    {/* <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold text-pink-400 mb-2">50+</div>
-                            <div className="text-gray-400">Projects Completed</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold text-pink-400 mb-2">3+</div>
-                            <div className="text-gray-400">Years Experience</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold text-pink-400 mb-2">100%</div>
-                            <div className="text-gray-400">Client Satisfaction</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold text-pink-400 mb-2">24/7</div>
-                            <div className="text-gray-400">Available</div>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </section>
