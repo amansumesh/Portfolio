@@ -23,7 +23,6 @@ export default function Project() {
         return () => observer.disconnect();
     }, []);
 
-
     const filteredProjects = activeFilter === "all"
         ? projects
         : projects.filter(project => project.category === activeFilter);
@@ -72,25 +71,30 @@ export default function Project() {
                                         alt={project.title}
                                         className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <div className="flex gap-2">
-                                            <a
-                                                href={project.liveUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="px-3 py-1 bg-pink-500 text-white text-sm rounded-full hover:bg-pink-600 transition-colors duration-300"
-                                            >
-                                                Live Demo
-                                            </a>
-                                            <a
-                                                href={project.githubUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="px-3 py-1 border border-pink-500 text-pink-400 text-sm rounded-full hover:bg-pink-500 hover:text-white transition-colors duration-300"
-                                            >
-                                                GitHub
-                                            </a>
+
+                                    {/* Large Screen Overlay */}
+                                    <div className="hidden lg:block">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                                        <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <div className="flex gap-2">
+                                                <a
+                                                    href={project.liveUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="px-3 py-1 bg-pink-500 text-white text-sm rounded-full hover:bg-pink-600 transition-colors duration-300"
+                                                >
+                                                    Live Demo
+                                                </a>
+                                                <a
+                                                    href={project.githubUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="px-3 py-1 border border-pink-500 text-pink-400 text-sm rounded-full hover:bg-pink-500 hover:text-white transition-colors duration-300"
+                                                >
+                                                    GitHub
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,6 +117,29 @@ export default function Project() {
                                         ))}
                                     </div>
                                 </div>
+
+                                {/* Small Screen Buttons */}
+                                <div className="md:hidden flex justify-center px-4 pb-6">
+                                    <div className="flex gap-3 w-full max-w-xs">
+                                        <a
+                                            href={project.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex-1 px-4 py-2 bg-pink-500 text-white text-sm rounded-full hover:bg-pink-600 transition-colors duration-300 text-center"
+                                        >
+                                            Live Demo
+                                        </a>
+                                        <a
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex-1 px-4 py-2 border border-pink-500 text-pink-400 text-sm rounded-full hover:bg-pink-500 hover:text-white transition-colors duration-300 text-center"
+                                        >
+                                            GitHub
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
                         ))}
                     </div>
