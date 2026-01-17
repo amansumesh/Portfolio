@@ -1,6 +1,8 @@
 import TicTacToeImage from "../assets/Tictactoe.png";
 import PortfolioImage from "../assets/Portfolio.png";
 import EdusphereImage from "../assets/Edusphere.jpg";
+import ChessGameImage from "../assets/ChessGame.jpeg";
+import SwiftNotesImage from "../assets/SwiftNotes.jpeg";
 
 export const projects = [
     {
@@ -10,10 +12,10 @@ export const projects = [
         image: TicTacToeImage,
         technologies: ["HTML", "CSS", "JavaScript"],
         category: "frontend",
-        liveUrl: "https://tic-tac-toe-game-rho-ochre.vercel.app/",     
+        liveUrl: "https://tic-tac-toe-game-rho-ochre.vercel.app/",
         githubUrl: "https://github.com/amansumesh/Tic-Tac-Toe-Game.git"
     },
-    
+
     {
         id: 2,
         title: "Personal Portfolio Website",
@@ -36,7 +38,27 @@ export const projects = [
         githubUrl: "https://github.com/amansumesh/EduSphere.git"
     },
 
+    {
+        id: 4,
+        title: "Checkmate.io",
+        description: "A real-time online chess platform where two players can compete live while others watch the match in real time. Built with Node.js and Socket.IO for instant synchronization, and Chess.js for accurate game logic and server-side move validation. Ensures fair gameplay with validated moves and seamless multiplayer interaction.",
+        image: ChessGameImage,
+        technologies: ["Node.js", "Express", "Socket.IO", "Chess.js"],
+        category: "backend",
+        liveUrl: "https://checkmateio-eight.vercel.app/",
+        githubUrl: "https://github.com/amansumesh/ChessGame.git"
+    },
 
+    {
+        id: 5,
+        title: "SwiftNotes",
+        description: "A sleek and lightweight notes application built with React and Tailwind CSS, designed for fast task creation and effortless note organization. Features a clean, minimal UI focused on improving daily productivity and managing notes efficiently.",
+        image: SwiftNotesImage,
+        technologies: ["React", "Tailwind CSS", "JavaScript"],
+        category: "frontend",
+        liveUrl: "https://swift-notes-cyan.vercel.app/",
+        githubUrl: "https://github.com/amansumesh/SwiftNotes.git"
+    }
 ];
 
 export const categories = [
