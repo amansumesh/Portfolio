@@ -19,6 +19,11 @@ export default function LoadingScreen({ onComplete }) {
           setTimeout(() => onComplete(), 800); // wait for fade animation
         }, 1000);
       }
+      {
+        isTyping && (
+          <span className="animate-blink" style={{ marginLeft: 4 }}>|</span>
+        )
+      }
     }, 100);
 
     return () => clearInterval(interval);
@@ -26,9 +31,8 @@ export default function LoadingScreen({ onComplete }) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 bg-black text-gray-100 flex flex-col items-center justify-center transition-opacity duration-700 ${
-        fadeOut ? "opacity-0" : "opacity-100"
-      }`}
+      className={`fixed inset-0 z-50 bg-black text-gray-100 flex flex-col items-center justify-center transition-opacity duration-700 ${fadeOut ? "opacity-0" : "opacity-100"
+        }`}
     >
       <div className="mb-4 text-4xl font-mono font-bold">
         {text}

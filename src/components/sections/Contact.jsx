@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { sendEmail } from "../../utils/emailjs";
 import { socialLinks } from "../../data/Socials"
+import { motion } from "framer-motion";
+import { RevealOnScroll } from "../RevealOnScroll";
+
 export default function Contact() {
-    const [isVisible, setIsVisible] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -10,24 +12,6 @@ export default function Contact() {
         message: ""
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        const element = document.getElementById('contact');
-        if (element) {
-            observer.observe(element);
-        }
-
-        return () => observer.disconnect();
-    }, []);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -61,7 +45,7 @@ export default function Contact() {
     return (
         <section id="contact" className="py-20 bg-gradient-to-b from-black to-gray-900">
             <div className="max-w-6xl mx-auto px-4">
-                <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <RevealOnScroll>
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                             Get In <span className="text-pink-400">Touch</span>
@@ -72,7 +56,9 @@ export default function Contact() {
                             Let's create something amazing together!
                         </p>
                     </div>
+                </RevealOnScroll>
 
+                <RevealOnScroll>
                     <div className="grid lg:grid-cols-2 gap-12">
                         {/* Contact Information */}
                         <div className="space-y-8">
@@ -129,15 +115,17 @@ export default function Contact() {
                                 <h4 className="text-white font-semibold mb-4">Follow Me</h4>
                                 <div className="flex justify-center space-x-4">
                                     {socialLinks.map((social) => (
-                                        <a
+                                        <motion.a
                                             key={social.name}
                                             href={social.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-pink-500 hover:text-white transition-all duration-300 transform hover:scale-110"
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-pink-500 hover:text-white transition-colors duration-300"
                                         >
                                             {social.icon}
-                                        </a>
+                                        </motion.a>
                                     ))}
                                 </div>
                             </div>
@@ -212,10 +200,12 @@ export default function Contact() {
                                     />
                                 </div>
 
-                                <button
+                                <motion.button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full px-8 py-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-pink-500/25"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="w-full px-8 py-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-pink-500/25"
                                 >
                                     {isSubmitting ? (
                                         <div className="flex items-center justify-center">
@@ -225,11 +215,11 @@ export default function Contact() {
                                     ) : (
                                         "Send Message"
                                     )}
-                                </button>
+                                </motion.button>
                             </form>
                         </div>
                     </div>
-                </div>
+                </RevealOnScroll>
             </div>
         </section>
     );

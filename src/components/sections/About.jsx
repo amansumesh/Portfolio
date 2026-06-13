@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ReactLogo from "../../assets/React.svg";
 import JavaScriptLogo from "../../assets/JavaScript.svg";
 import ExpressLogo from "../../assets/Express.svg";
@@ -7,28 +6,10 @@ import JavaLogo from "../../assets/Java.svg";
 import MongoDBLogo from "../../assets/MongoDB.svg";
 import NextLogo from "../../assets/Nextjs.svg";
 import FigmaLogo from "../../assets/Figma.svg";
+import { motion } from "framer-motion";
+import { RevealOnScroll } from "../RevealOnScroll";
 
 export default function About() {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        const element = document.getElementById('about');
-        if (element) {
-            observer.observe(element);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
     const skills = [
         {
             name: "React",
@@ -67,22 +48,24 @@ export default function About() {
     return (
         <section id="about" className="py-20 bg-gradient-to-b from-black to-gray-900">
             <div className="max-w-6xl mx-auto px-4">
-                <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <RevealOnScroll>
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                             About <span className="text-pink-400">Me</span>
                         </h2>
                         <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-pink-600 mx-auto rounded-full"></div>
                     </div>
+                </RevealOnScroll>
 
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        {/* Left Column - Text Content */}
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                    {/* Left Column - Text Content */}
+                    <RevealOnScroll>
                         <div className="space-y-6">
                             <div className="text-lg text-gray-300 leading-relaxed">
                                 <p className="mb-4">
                                     I'm a passionate full-stack developer with a love for creating
                                     innovative digital solutions. I am a student at VIT Vellore.
-                                    I specialize in building modern, scalable applications 
+                                    I specialize in building modern, scalable applications
                                     that deliver exceptional user experiences.
                                 </p>
                                 <p className="mb-4">
@@ -110,26 +93,46 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
+                    </RevealOnScroll>
 
-                        {/* Right Column - Skills */}
-                        <div className="space-y-6">
+                    {/* Right Column - Skills */}
+                    <div className="space-y-6">
+                        <RevealOnScroll>
                             <h3 className="text-2xl font-bold text-white mb-6">Technical Skills</h3>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                                {skills.map((skill, index) => (
-                                    <div
-                                        key={skill.name}
-                                        className={`flex flex-col items-center p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                                            }`}
-                                        style={{ transitionDelay: `${index * 100}ms` }}
-                                    >
-                                        <div className="p-3 rounded-full bg-white/10 mb-3 flex items-center justify-center">
-                                            {skill.logo}
-                                        </div>
-                                        <span className="text-gray-300 font-medium text-sm">{skill.name}</span>
+                        </RevealOnScroll>
+
+                        <motion.div
+                            className="grid grid-cols-2 md:grid-cols-3 gap-6"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-50px" }}
+                            variants={{
+                                visible: {
+                                    opacity: 1,
+                                    transition: {
+                                        staggerChildren: 0.1
+                                    }
+                                },
+                                hidden: { opacity: 0 }
+                            }}
+                        >
+                            {skills.map((skill) => (
+                                <motion.div
+                                    key={skill.name}
+                                    variants={{
+                                        hidden: { opacity: 0, y: 20 },
+                                        visible: { opacity: 1, y: 0 }
+                                    }}
+                                    whileHover={{ scale: 1.05 }}
+                                    className="flex flex-col items-center p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-pink-500/50 transition-colors duration-300"
+                                >
+                                    <div className="p-3 rounded-full bg-white/10 mb-3 flex items-center justify-center">
+                                        {skill.logo}
                                     </div>
-                                ))}
-                            </div>
-                        </div>
+                                    <span className="text-gray-300 font-medium text-sm">{skill.name}</span>
+                                </motion.div>
+                            ))}
+                        </motion.div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { Menu } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,12 +13,23 @@ export const Navbar = () => {
         { name: "Contact", href: "#contact" }
     ];
 
-    return(
-        <nav className="fixed top-0 w-full z-50 bg-[rgba(10, 10, 10, 0.9)] backdrop-blur-lg border-b border-pink-500/20 shadow-lg"> 
-            <div className="max-w-6xl mx-auto px-4">
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [isMenuOpen]);
+
+    return (
+        <nav className="fixed top-0 w-full z-50">
+            {/* Background Blur Backdrop */}
+            <div className="absolute inset-0 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg"></div>
+
+            <div className="max-w-7xl mx-auto px-4 relative z-10">
                 <div className="flex justify-between items-center h-16">
                     <a href="#home" className="font-mono text-xl font-bold text-white hover:text-pink-400 transition-colors duration-300">
-                        Aman <span className="text-pink-400">Sumesh</span>
+                        Aman <span className="text-pink-500">Sumesh</span>
                     </a>
 
                     {/* Desktop Navigation */}
@@ -25,38 +38,50 @@ export const Navbar = () => {
                             <a
                                 key={item.name}
                                 href={item.href}
-                                className="text-gray-300 hover:text-pink-400 transition-colors duration-300 font-medium"
+                                className="text-gray-300 hover:text-white transition-colors duration-300 font-medium relative group"
                             >
                                 {item.name}
+                                <span className="absolute left-0 bottom-[-2px] w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         ))}
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden text-white hover:text-pink-400 transition-colors duration-300 relative z-50 p-2"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        <Menu className="w-6 h-6" />
-                    </button>
-                </div>
-
-                {/* Mobile Navigation */}
-                {isMenuOpen && (
-                    <div className="md:hidden py-4 border-t border-pink-500/20">
-                        {navItems.map((item) => (
-                            <a
-                                key={item.name}
-                                href={item.href}
-                                className="block py-2 text-gray-300 hover:text-pink-400 transition-colors duration-300 font-medium"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                {item.name}
-                            </a>
-                        ))}
+                    <div className="md:hidden flex items-center">
+                        <button
+                            className="text-white hover:text-pink-400 transition-colors duration-300 p-2"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            <Menu className="w-6 h-6" />
+                        </button>
                     </div>
-                )}
+                </div>
             </div>
+
+            {/* Mobile Navigation */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="md:hidden bg-[rgba(10,10,10,0.9)] border-b border-pink-500/20 overflow-hidden"
+                    >
+                        <div className="px-4 py-4 space-y-2">
+                            {navItems.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    className="block py-3 text-gray-300 hover:text-pink-400 transition-colors duration-300 font-medium border-b border-white/5 last:border-0"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    {item.name}
+                                </a>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 };
